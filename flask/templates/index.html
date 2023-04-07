@@ -13,11 +13,21 @@
   		  background-attachment: fixed;
           background-size: 100% 100%;
 	}
+	button{
+		text-align: center;
+		font-size: 32px;
+		margin-left:36%;
+		border-radius:25px;
+		background-color: burlywood;
+		padding: 5px;
+		width: 32%;
+	}
 </style>
 <body >
+	<hr>
 	<div class="row justify-content-center">	
 		<div class="col-md-6 img-thumbnail">
-			<h3 class="text-center text-primary">Upload file Here</h3><hr>
+			<h3 style="background-color: blue ;padding: 6px;" class="text-center text-white">Upload file Here </h3>
 			<form class="form" action="/res" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="exampleFormControlFile1">Select file:</label>
@@ -32,28 +42,30 @@
 	<div class="row justify-content-center">
 
 		<div class="col-md-3 img-thumbnail float-left" style="margin: 1%;">
-			<h4 class="text-center text-success">Positive</h4><hr>
+			<h4 style="background-color: seagreen ;padding: 3px;" class="text-center text-white">Positive</h4><hr>
 			
 			<li>{{ data[0] }}</li>
 			
 		</div>
 		<div class="col-md-3 img-thumbnail float-left" style="margin: 1%;">
-			<h4 class="text-center text-info">Neutral</h4><hr>
+			<h4 style="background-color: orange ;padding: 3px;"class="text-center text-white">Neutral</h4><hr>
 			
 			<li>{{ data[1] }}</li>
 			
 		</div>
 		<div class="col-md-3 img-thumbnail float-left" style="margin: 1%;">
-			<h4 class="text-center text-danger">Negative</h4><hr>
+			<h4 style="background-color: darkred ;padding: 3px;" class="text-center text-white">Negative</h4><hr>
 			
 			<li>{{ data[2] }}</li>
 			
 		</div>
 
-		<div class="col-md-3 img-thumbnail float-left" style="margin: 1%;">
-			<h4 class="text-center text-danger"></h4><hr>
+		<div class="col-md-4 float-left" style="margin: 3%;">
+			<h4 class="text-center text-danger"></h4> 
 			
-			<li><a href="{{url_for('download')}}">Download</a></li>
+			<button>
+					<a style="color:white;font-family: fantasy;" href="{{url_for('download')}}">Download</a>
+			</button>
 			
 		</div>
 	</div>
