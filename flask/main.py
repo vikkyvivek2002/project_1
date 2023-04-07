@@ -14,10 +14,15 @@ import re
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/",methods=['GET','POST'])
+def enter():
+    print(request.method)
+    if request.method == "GET":
+        return render_template("second.html")
+    return redirect(url_for("home"))
+
 @app.route('/res',methods=['GET','POST'])
 def home():
-
     if request.method == "POST":
         f = request.files['attachment']
         f.save("static/sample.csv")
@@ -58,7 +63,7 @@ def home():
         z = sum(data["Neutral"])
         print("Positive: ", x)
         print("Negative: ", y)
-        print("Neutral: ",z)
+        print("Neutral:",z)
         data.to_csv('final.csv')
         return render_template("index.html",res=1,data=[x,y,z])
     else:
@@ -71,6 +76,5 @@ def download():
     return send_file(fe,as_attachment=True)
 
 
-
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=True)
